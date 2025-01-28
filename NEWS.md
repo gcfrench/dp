@@ -1,18 +1,19 @@
-# dp 0.3.9
+# dp 0.3.10
 
-# dp 0.3.8
+# dp 0.3.9 <font size="4">2025-01-28</font>
 
-# dp 0.3.7 <font size="4">2025-01-28</font>
 
-- updated **include_version_control** to create a remote data project repository
-on GitHub
+- renamed **access_remote_version_control**, **include_local_version_control** and
+**sync_local_version_control**
+- added **include_remote_version_control** generic function to create a GitHub 
+repository for the data project
 
 # dp 0.3.6 <font size="4">2024-12-20</font>
 
 - added **access_version_control** to create and store a GitHub Personal Access
 Token in the local credential store
 - added **version_control** property
-- added **include_version_control** generic functions to create a Git repository for
+- added **include_version_control** generic function to create a Git repository for
 the project, adding files to ignore in version control in .gitignore. Information on 
 using Git with Rstudio can be found in [Happy Git and Github for the useR](https://happygitwithr.com/)
 - added **sync_version_control** generic function to stage and commit project files 

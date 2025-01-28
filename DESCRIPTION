@@ -1,11 +1,13 @@
 Package: dp
 Title: Data project
-Version: 0.3.9
+Version: 0.3.10
 Authors@R: 
     person("Graham", "French", , "graham.french@jncc.gov.uk", role = c("aut", "cre"))
 Description: This package contains the S7 properties, generic functions
     and methods used to maintain a data project.
 License: OGL
+URL: https://github.com/gcfrench/dp
+BugReports: https://github.com/gcfrench/dp/issues
 Imports: 
     attachment,
     desc,
@@ -44,5 +46,3 @@ VignetteBuilder:
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
-URL: https://github.com/gcfrench/dp
-BugReports: https://github.com/gcfrench/dp/issues

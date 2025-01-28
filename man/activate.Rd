@@ -25,6 +25,7 @@ Data project properties
 \item databases - project set up to include the connection to databases and use of SQL queries
 \item documentation - project set up to include package documentation
 \item fme - project set up to include the use of FME workspaces and custom transformers
+\item local_version_control - project set up to use Git as version control system
 \item magrittr_pipe - project set up to use the magrittr's pipe, \%>\% in the package
 \item package_version_control uses \href{https://rstudio.github.io/renv/}{renv} lock file to manage the package versions within the project
 \item quality_assurance functions used for the validation and quality assurance of datasets
@@ -33,7 +34,6 @@ Data project properties
 \item tasks - project uses tasks quarto document to list tasks for the project
 \item typst_documents - project set up to include typst documents
 \item unit_tests - project set up to include function unit tests using the \href{https://testthat.r-lib.org/}{testthat package}
-\item version_control - project set up to use Git as version control system
 \item vignettes - project set up to include vignette quarto documents
 }
 
@@ -62,10 +62,11 @@ corresponding html files for documentation
 \item include_databases - includes the use of connecting to databases and SQL queries within the project
 \item include_documentation - includes documentation in the project
 \item include_fme - includes the use of FME workspaces and custom transformers within the project
+\item include_local_version_control - creates a Git repository for the project
 \item include_magrittr_pipe - includes the use of the magrittr pipe in the project
 \item include_quality_assurance - adds functions used for the validation and quality assurance of datasets
+\item include_remote_version_control - craetes a GitHub repository for the project
 \item include_spreadsheets - includes the use of spreadsheets within the project
-\item include_version_control - creates a Git and GitHub repository for the project
 \item increment_major_version - increments major level of data project version, with message to update lifecycle badge
 \item increment_minor_version - increments minor level of data project version, with message to update lifecycle badge
 \item open_config - opens the config yaml and .Renviron files in RStudio for editing

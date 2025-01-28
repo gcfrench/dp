@@ -8,6 +8,14 @@
 \description{
 This package contains the S7 properties, generic functions and methods used to maintain a data project.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/gcfrench/dp}
+  \item Report bugs at \url{https://github.com/gcfrench/dp/issues}
+}
+
+}
 \author{
 \strong{Maintainer}: Graham French \email{graham.french@jncc.gov.uk}
 

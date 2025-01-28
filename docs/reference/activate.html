@@ -9,7 +9,7 @@ updating the project's version"></head><body>
 
     <a class="navbar-brand me-2" href="../index.html">dp</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.8</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.9</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,7 +43,7 @@ updating the project's version"></head><body>
   <main id="main" class="col-md-9"><div class="page-header">
 
       <h1>activate data project</h1>
-
+      <small class="dont-index">Source: <a href="https://github.com/gcfrench/dp/blob/HEAD/R/data_project.R" class="external-link"><code>R/data_project.R</code></a></small>
       <div class="d-none name"><code>activate.Rd</code></div>
     </div>
 
@@ -72,6 +72,7 @@ updating the project's version</p>
 <li><p>databases - project set up to include the connection to databases and use of SQL queries</p></li>
 <li><p>documentation - project set up to include package documentation</p></li>
 <li><p>fme - project set up to include the use of FME workspaces and custom transformers</p></li>
+<li><p>local_version_control - project set up to use Git as version control system</p></li>
 <li><p>magrittr_pipe - project set up to use the magrittr's pipe, %&gt;% in the package</p></li>
 <li><p>package_version_control uses <a href="https://rstudio.github.io/renv/" class="external-link">renv</a> lock file to manage the package versions within the project</p></li>
 <li><p>quality_assurance functions used for the validation and quality assurance of datasets</p></li>
@@ -80,7 +81,6 @@ updating the project's version</p>
 <li><p>tasks - project uses tasks quarto document to list tasks for the project</p></li>
 <li><p>typst_documents - project set up to include typst documents</p></li>
 <li><p>unit_tests - project set up to include function unit tests using the <a href="https://testthat.r-lib.org/" class="external-link">testthat package</a></p></li>
-<li><p>version_control - project set up to use Git as version control system</p></li>
 <li><p>vignettes - project set up to include vignette quarto documents</p></li>
 </ul><p>Data project generic functions and methods</p><ul><li><p>access_version_control - create and store a GitHub Personal Access token in the local credential store</p></li>
 <li><p>add_data_script - includes the use of data within the project, adding a data-raw script for the dataset(s)</p></li>
@@ -105,10 +105,11 @@ corresponding html files for documentation</p></li>
 <li><p>include_databases - includes the use of connecting to databases and SQL queries within the project</p></li>
 <li><p>include_documentation - includes documentation in the project</p></li>
 <li><p>include_fme - includes the use of FME workspaces and custom transformers within the project</p></li>
+<li><p>include_local_version_control - creates a Git repository for the project</p></li>
 <li><p>include_magrittr_pipe - includes the use of the magrittr pipe in the project</p></li>
 <li><p>include_quality_assurance - adds functions used for the validation and quality assurance of datasets</p></li>
+<li><p>include_remote_version_control - craetes a GitHub repository for the project</p></li>
 <li><p>include_spreadsheets - includes the use of spreadsheets within the project</p></li>
-<li><p>include_version_control - creates a Git and GitHub repository for the project</p></li>
 <li><p>increment_major_version - increments major level of data project version, with message to update lifecycle badge</p></li>
 <li><p>increment_minor_version - increments minor level of data project version, with message to update lifecycle badge</p></li>
 <li><p>open_config - opens the config yaml and .Renviron files in RStudio for editing</p></li>

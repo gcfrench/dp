@@ -89,6 +89,15 @@ data_project <- S7::new_class(
         }
       }
     ),
+    local_version_control = S7::new_property(
+      getter = function(self) {
+        if(fs::file_exists(fs::path(self@location, ".git"))) {
+          TRUE |> as.logical()
+        } else {
+          FALSE |> as.logical()
+        }
+      }
+    ),
     magrittr_pipe = S7::new_property(
       getter = function(self) {
         if(fs::file_exists(fs::path(self@location, "R", "utils-pipe.R"))) {
@@ -166,15 +175,6 @@ data_project <- S7::new_class(
         }
       }
     ),
-    version_control = S7::new_property(
-      getter = function(self) {
-        if(fs::file_exists(fs::path(self@location, ".git"))) {
-          TRUE |> as.logical()
-        } else {
-          FALSE |> as.logical()
-        }
-      }
-    ),
     vignettes = S7::new_property(
       getter = function(self) {
         if(fs::file_exists(fs::path(self@location, "vignettes"))) {
@@ -194,7 +194,7 @@ data_project <- S7::new_class(
   }
 )
 # ------------------------------------------------------------------------------
-#' @title access version control
+#' @title access version remote control
 #' 
 #' @description
 #' This generic function goes to GitHub to create a Personal Access Token which 
@@ -204,10 +204,10 @@ data_project <- S7::new_class(
 #' @family version_control
 #' 
 #' @export
-access_version_control <- S7::new_generic("access_version_control", "x")
+access_remote_version_control <- S7::new_generic("access_remote_version_control", "x")
 
 #' @noRd
-S7::method(access_version_control, data_project) <- function(x) {
+S7::method(access_remote_version_control, data_project) <- function(x) {
   
   # create GitHub Personal Access Token
   usethis::create_github_token()
@@ -928,6 +928,50 @@ S7::method(include_fme, data_project) <- function(x) {
 }
 
 # ------------------------------------------------------------------------------
+#' @title include local version control
+#' 
+#' @description
+#' This generic function adds the data project to a Git repository, updating the
+#' .gitignore file with files to ignore in version control and allows an initial
+#' commit to this repository.
+#' 
+#' @family version_control
+#' 
+#' @details
+#' In the Terminal check Git installed on local machine
+#' * where git
+#' * git --version
+#' 
+#' In the Terminal check Git credentials are present
+#' * git config --global --list
+#' 
+#' Set Git credentials if not present
+#' * usethis::use_git_config(user.name = "USERNAME", user.email = "EMAIL")
+#' 
+#' In RStudio check Git Global options
+#' * version control interface for RStudio projects is ticked
+#' * Git executable path is set to C:/Program Files/Git/bin/git.exe
+#' 
+#' 
+#' @export
+include_local_version_control <- S7::new_generic("include_local_version_control", "x")
+
+#' @noRd
+S7::method(include_local_version_control, data_project) <- function(x) {
+  
+  if(!x@local_version_control) {
+    # Add git repository
+    message(".git folder created in data project")
+    usethis::use_git()
+    
+    # add config.yml and .Renviron files to .gitignore
+    usethis::use_git_ignore(c("config.yml", ".Renviron"))
+  } else {
+    message("Git repository already exists for the data project")
+  }
+}
+
+# ------------------------------------------------------------------------------
 #' @title include magrittr pipe
 #'
 #' @description
@@ -1044,6 +1088,34 @@ S7::method(include_quarto_documents, data_project) <- function(x) {
 }
 
 # ------------------------------------------------------------------------------
+#' @title include remote version control
+#' 
+#' @description
+#' This generic function adds the data project to a new GitHub repository and makes
+#' an initial commit
+#' 
+#' @family version_control
+#' 
+#' @export
+include_remote_version_control <- S7::new_generic("include_remote_version_control", "x")
+
+#' @noRd
+S7::method(include_remote_version_control, data_project) <- function(x) {
+  
+  if(x@local_version_control) {
+    # create new GitHub data project repository
+    usethis::use_github()
+    message("remote data project repository created on GitHub")
+  } else {
+    message("Local version control required for the data project")
+  }
+  
+  # create new GitHub data project repository
+  usethis::use_github()
+  message("remote data project repository created on GitHub")
+}
+
+# ------------------------------------------------------------------------------
 #' @title include spreadsheets
 #'
 #' @description
@@ -1116,54 +1188,6 @@ S7::method(include_typst_documents, data_project) <- function(x) {
   } else {
     message("typst docs folder already exists within the data project")
   }
-}
-
-# ------------------------------------------------------------------------------
-#' @title include version control
-#' 
-#' @description
-#' This generic function adds the data project to a Git repository, updating the
-#' .gitignore file with files to ignore in version control and allows an initial
-#' commit to this repository. It creates a remote data project repository on GitHub
-#' 
-#' @family version_control
-#' 
-#' @details
-#' In the Terminal check Git installed on local machine
-#' * where git
-#' * git --version
-#' 
-#' In the Terminal check Git credentials are present
-#' * git config --global --list
-#' 
-#' Set Git credentials if not present
-#' * usethis::use_git_config(user.name = "USERNAME", user.email = "EMAIL")
-#' 
-#' In RStudio check Git Glocal options
-#' * version control interface for RStudio projects is ticked
-#' * Git executable path is set to C:/Program Files/Git/bin/git.exe
-#' 
-#' 
-#' @export
-include_version_control <- S7::new_generic("include_version_control", "x")
-
-#' @noRd
-S7::method(include_version_control, data_project) <- function(x) {
-  
-  if(!x@version_control) {
-    # Add git repository
-    message(".git folder created in data project")
-    usethis::use_git()
-    
-    # add config.yml and .Renviron files to .gitignore
-    usethis::use_git_ignore(c("config.yml", ".Renviron"))
-  } else {
-    message("Git repository already exists for the data project")
-  }
-  
-  # add repo on github
-  usethis::use_github()
-  message("remote data project repository created on GitHub")
 }
 
 # ------------------------------------------------------------------------------
@@ -1454,7 +1478,7 @@ S7::method(refresh_imports_package_list, data_project) <- function(x) {
 }
 
 # ------------------------------------------------------------------------------
-#' @title sync version control
+#' @title sync local version control
 #'
 #' @description
 #' This generic function stages and commits data project files to the git repository
@@ -1467,12 +1491,12 @@ S7::method(refresh_imports_package_list, data_project) <- function(x) {
 #' * git commit -m "COMMIT MESSAGE"
 #' 
 #' @export
-sync_version_control <- S7::new_generic("update_to_version_control", "x")
+sync_local_version_control <- S7::new_generic("sync_local_version_control", "x")
 
 #' @noRd
-S7::method(sync_version_control, data_project) <- function(x) {
+S7::method(sync_local_version_control, data_project) <- function(x) {
   
-  if(x@version_control) {
+  if(x@local_version_control) {
     # stage all files to git
     gert::git_add(files = ".")
     
@@ -1510,6 +1534,7 @@ S7::method(sync_version_control, data_project) <- function(x) {
 #' * databases - project set up to include the connection to databases and use of SQL queries
 #' * documentation - project set up to include package documentation
 #' * fme - project set up to include the use of FME workspaces and custom transformers
+#' * local_version_control - project set up to use Git as version control system
 #' * magrittr_pipe - project set up to use the magrittr's pipe, %>% in the package
 #' * package_version_control uses [renv](https://rstudio.github.io/renv/) lock file to manage the package versions within the project
 #' * quality_assurance functions used for the validation and quality assurance of datasets
@@ -1518,7 +1543,6 @@ S7::method(sync_version_control, data_project) <- function(x) {
 #' * tasks - project uses tasks quarto document to list tasks for the project
 #' * typst_documents - project set up to include typst documents
 #' * unit_tests - project set up to include function unit tests using the [testthat package](https://testthat.r-lib.org/)
-#' * version_control - project set up to use Git as version control system
 #' * vignettes - project set up to include vignette quarto documents
 #'
 #' Data project generic functions and methods
@@ -1545,10 +1569,11 @@ S7::method(sync_version_control, data_project) <- function(x) {
 #' * include_databases - includes the use of connecting to databases and SQL queries within the project
 #' * include_documentation - includes documentation in the project
 #' * include_fme - includes the use of FME workspaces and custom transformers within the project
+#' * include_local_version_control - creates a Git repository for the project
 #' * include_magrittr_pipe - includes the use of the magrittr pipe in the project
 #' * include_quality_assurance - adds functions used for the validation and quality assurance of datasets
+#' * include_remote_version_control - craetes a GitHub repository for the project
 #' * include_spreadsheets - includes the use of spreadsheets within the project
-#' * include_version_control - creates a Git and GitHub repository for the project
 #' * increment_major_version - increments major level of data project version, with message to update lifecycle badge
 #' * increment_minor_version - increments minor level of data project version, with message to update lifecycle badge
 #' * open_config - opens the config yaml and .Renviron files in RStudio for editing

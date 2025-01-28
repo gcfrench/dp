@@ -7,7 +7,7 @@ reference:
   - title: "Data Project"
     desc: "Functions used to maintain the data project"
     contents:
-    - access_version_control
+    - access_remote_version_control
     - activate
     - add_data_script
     - add_function_script
@@ -28,10 +28,11 @@ reference:
     - include_fme
     - include_databases
     - include_documentation
+    - include_local_version_control
     - include_magrittr_pipe
     - include_quality_assurance
+    - include_remote_version_control
     - include_spreadsheets
-    - include_version_control
     - increment_major_version
     - increment_minor_version
     - open_config
@@ -41,7 +42,7 @@ reference:
     - open_pkgdown
     - open_products
     - open_tasks
-    - sync_version_control
+    - sync_local_version_control
 
 navbar:
   left:
