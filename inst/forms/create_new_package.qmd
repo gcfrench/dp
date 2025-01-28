@@ -1,0 +1,92 @@
+---
+format: 
+  html:
+    embed-resources: true
+server: shiny
+execute: 
+  eval: true
+---
+
+## Blank project
+
+```{r}
+#| label: create_project
+#| layout: [[1, 1], [1], [1, 1], [1], [1, 1], [1], [1, 1], [1], [1, 1], [1], [1, 1], [1], [1], [1, 1], [1], [1]]
+
+# Create project
+tags$b("Title")
+textInput("project_title", NULL, value = "Data project title")
+tags$br()
+
+tags$b("Description")
+textAreaInput("project_description", NULL, 
+              value = "Example text: This project contains the instructions, R functions, scripts, FME Form workspaces and custom transformers, SQL, lookup data and the project data necessary for the data project",
+              height = '200px')
+tags$br()
+
+tags$b("Author's first name")
+textInput("author_first_name", NULL, value = "Graham")
+tags$br()
+
+tags$b("Author's surname")
+textInput("author_surname", NULL, value = "French")
+tags$br()
+
+tags$b("Author's email address")
+textInput("author_email", NULL, value = "graham.french@jncc.gov.uk")
+tags$br()
+
+tags$b("Project licence")
+selectInput("project_licence", NULL, choices = c("OGL"), selected = "OGL")
+tags$br()
+
+tags$hr()
+tags$b("Create project")
+actionButton("project", "Go!")
+tags$hr()
+
+## create project message
+span(htmlOutput("project_message"), style = "color:red")
+```
+
+```{r}
+#| label: create_data_project
+#| context: server
+
+# create project reactive variables
+project <- reactiveValues()
+project$path <- here::here()
+project$name <- fs::path_file(here::here())
+
+# run on clicking project action button
+observeEvent(input$project, {
+  
+  # Create package
+  usethis::create_package(project$path,
+                          fields = list(Title = input$project_title,
+                                        Description = input$project_description,
+                                        `Authors@R` = person(input$author_first_name, 
+                                                             input$author_surname, 
+                                                             role = c("aut", "cre"),
+                                                             email = input$author_email),
+                                        License = input$project_licence),
+                          check_name = TRUE,
+                          rstudio = FALSE,
+                          open = FALSE)
+  
+  # turn off saving work space between sessions
+  usethis::use_blank_slate(scope = "project")
+  
+  # Create package_message
+  output$project_message <- shiny::renderUI({
+    HTML(paste(glue::glue("Project name: {project$name} project"),
+               glue::glue("Project path: {project$path} project"),
+               "✔️ Created DESCRIPTION file",
+               "✔️ Added project title, description and author's details and project licence to DESCRIPTION file",
+               "✔️ Created NAMESPACE file",
+               "✔️ Turn off loading the previous session's workspace on starting the project's session",
+               "✔️ Loaded project",
+               sep = "<br/>"))
+  })
+})
+```

@@ -1,0 +1,403 @@
+---
+title: "FME transformers"
+author: "Graham French"
+date-modified: "`r lubridate::today()`"
+output: html_vignette
+vignette: >
+  %\VignetteIndexEntry{FME transformers}
+  %\VignetteEngine{quarto::html}
+  %\VignetteEncoding{UTF-8}
+execute: 
+  eval: false
+editor: visual
+---
+
+## FME safe software
+
+Useful online resources
+
+-   [FME hub](https://hub.safe.com/) - : Discover a wide range of pre-built FME Transformers, formats, templates, web connections and packages contributed by the FME community.
+-   [FME community](https://community.safe.com/) - Join the FME Community to connect with fellow FME users, ask questions, share ideas, and access a vast library of Workspaces and examples
+-   [FME documentation](https://support.safe.com/s/documentation) - This comprehensive documentation covers all aspects of FME Form, FME Flow and FME Flow Hosted, providing detailed explanations, tutorials, and examples
+-   [FME Transformer gallery](https://engage.safe.com/transformers/) - All the formal transformation tools in FME, sortable by popularity, to help you better understand which Transformers are most heavily used and therefore which tools you might want to consider trying
+-   [Format support](https://engage.safe.com/fme/formats-matrix/): A full list of formats supported by FME
+-   [FME integrations gallery](https://engage.safe.com/fme/formats-matrix/)
+-   [Tensing's Partner Page](https://fme.safe.com/partners/avineon-tensing/): Find out more about Tensing
+-   [Tensing's FME Page:](https://www.tensing.com/en/software/fme) Find out more about FME and get access to an FME trial licence for Form, Flow or Flow Hosted if you need one
+
+[**Knowledge Base**](https://community.safe.com/s/knowledge-base) **and online videos**
+
+-   [FME Desktop basic online video tutorial](https://engage.safe.com/training/recorded/fme-desktop-basic-2022-1/)
+-   [FME Desktop advanced online video tutorial](https://engage.safe.com/training/recorded/fme-desktop-advanced-2022-1/)
+-   [Advanced attribute list handling online video tutorial](https://engage.safe.com/training/recorded/advanced-attribute-list-handling/) Adjacent Feature attributes, CurrentAttribute, Regular Expressions, DateTimes, List Handling
+-   [FME YouTube Channel:](https://www.youtube.com/@FMEchannel) Safe Software's official YouTube channel offers tutorials, webinars, and demonstrations to help you learn FME and explore its various applications
+-   [Safe's Live and Recorded Webinars:](https://engage.safe.com/webinars/) A huge resource of planned and historic sessions on a myriad of interesting topics
+-   [Tensing Knowledge Base](https://www.tensing.com/en/knowledge-base)
+-   [Tensing's YouTube Channel:](https://www.youtube.com/@TensingGIS) Tensing's official YouTube channel
+
+FME server
+
+-   [FME server authoring](https://engage.safe.com/training/recorded/fme-server-authoring-2021-1/)
+-   [Create data integration apps 2021](https://engage.safe.com/training/recorded/create-data-integration-apps-2021/)
+
+Spatial resources
+
+-   [Common GIS operations](https://community.safe.com/s/article/tutorial-common-gis-operations)
+-   [Spatial relationships defined](https://docs.safe.com/fme/html/FME-Form-Documentation/FME-Transformers/Transformers/spatialrelations.htm)
+-   [Merging or Joining Spreadsheet or Database Data](https://community.safe.com/s/article/working-with-database-transformers-1)
+-   [Preforming spatial joins and merges](https://community.safe.com/s/article/performing-spatial-joins-and-merges)
+
+Looping resources
+
+-   [To Loop or Not to Loop: Overcoming Roadblocks with FME webinar](https://www.youtube.com/watch?v=umQjpUgGSjE)
+
+    -   Demo #1: 9:24 - creating a loop and using a cloner transformer
+    -   Demo #2: 16.42 - loop through list elements
+    -   Demo #3: 38:15 - do while loop using http call example
+    -   Demo #4: 43.45 - group by looping using increasing buffer size example
+
+Batch processing
+
+-   [Lightspeed Batch Processing: The Hidden Update in FME 2018](https://engage.safe.com/blog/2018/03/batch-processing-2018-evangelist172/)
+-   [Batch Processing using the WorkspaceRunner](https://support.safe.com/s/article/batch-processing-using-the-workspacerunner-1)
+
+Performance resources
+
+-   [Performance tuning FME](https://community.safe.com/s/article/performance-tuning-fme)
+
+FME feature functions - returns a value and can be used in expressions
+
+-   [FME Feature Functions](https://docs.safe.com/fme/html/FME-Form-Documentation/FME-Transformers/!Transformer_Parameters/Feature_Functions.htm)
+
+Deployment Parameters
+
+-   [Getting started with Deployment Parameters](https://support.safe.com/s/article/Deployment-Parameters)
+-   [Deployment Parameters](https://docs.safe.com/fme/html/FME-Form-Documentation/FME-Form/!Transformer_Parameters/Deployment-Parameters.htm)
+
+Training
+
+-   [Tensing UK - FME Form Advanced Training Experience](https://tensing-1.gitbook.io/tensing-uk-fme-form-advanced/)
+-   [Tensing UK - FME Flow Authoring Training Experience](https://tensing-1.gitbook.io/tensing-uk-fme-flow-auth)
+
+Other
+
+-   [List example](https://tensing-1.gitbook.io/tensing-uk-fme-form-advanced/1.00.advancedattributes/working-with-list-attributes/exercise-1.7-list-handling-with-tree-species)
+-   [Setting a temporary file location for FME](https://support.safe.com/s/article/fme-temp-environment-variable)
+-   Tools - FME Options - Default Paths - Shared FME Folders. Use for sharing custom transformers
+-   [CRON expressions](https://www.freeformatter.com/cron-expression-generator-quartz.html)
+-   FME Flow automation app use with Manual Trigger in FME Flow automation to allow workspace automation triggered by individual users, for example when supplying data
+-   [How to use Microsoft Modern Authentication with FME](https://support.safe.com/s/article/How-to-use-Microsoft-Modern-Authentication-with-FME) setup required for sending emails with FME Flow
+-   [Compare Workspaces](https://docs.safe.com/fme/html/FME-Form-Documentation/FME-Form/Workbench/Compare-Workspaces.htm)
+-   [Mastering DevOps-Driven Data Integration with FME Webinar](https://engage.safe.com/webinars/mastering-devops-driven-data-integration-with-fme/)
+-   [Create incoming webhooks](https://learn.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook?tabs=newteams%2Cdotnet) - Webhook lets external applications share content in Microsoft Teams channels. [Create and send messages](https://learn.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/connectors-using)
+
+R
+
+-   [Using R with FME Flow](https://docs.safe.com/fme/html/FME-Flow/AdminGuide/Using-R-With-FME-Flow.htm)
+
+-   [RCaller](https://docs.safe.com/fme/html/FME-Form-Documentation/FME-Transformers/Transformers/rcaller.htm)
+
+-   [Getting strated with RCaller](https://support.safe.com/s/article/tutorial-getting-started-with-the-rcaller)
+
+-   [Ins and Outs of using R with FME](https://support.safe.com/s/article/rcaller-ins-and-outs-of-using-the-rcaller)
+
+Books
+
+-   [Spatial Data for the Enterprise For Dummies book](https://engage.safe.com/spatial-data-integration-for-dummies/)
+
+## FME transformers
+
+FME workbench
+
+-   [**WorkspaceRunner**](https://engage.safe.com/transformers/workspace-runner/) **-** runs a workbench, set wait for jobs to complete = Yes to run one workbench at a time
+
+    -   Use [**Terminator**](https://engage.safe.com/transformers/terminator/) in workbench to output in failed port of WorkspaceRunner
+
+Feature readers and writers
+
+-   [**Creator**](https://engage.safe.com/transformers/creator/) - select required geometry type and coordinate reference system to be passed into the workspace
+
+-   [**FeatureReader**](https://engage.safe.com/transformers/feature-reader/) - read features into the workspace. Requires an attached **Creator** transformer
+
+    -   When connecting to database FME requires read permission including linked databases in queries
+    -   Use FIELDNAME = 'VALUE' (single quotes) in WHERE Clause to filter on reading data.
+    -   Use [**ListExploder**](https://engage.safe.com/transformers/list-exploder/) on Schema output port to extract attribute names into name attribute
+    -   Change encoding to UTF-8 in parameters - Character Encoding to handle unicode characters
+
+| Parameters attributes to expose | Value |
+|------------------------------------|------------------------------------|
+| **fme_basename** | amphibian_invalid_schema |
+| **csv_line_number** | 2, 3, 4, 5 |
+| **csv_number_of_fields** | 3 |
+| **csv_total_number_of_columns** | 3 |
+| **fme_dataset** | C:/Files/packages/fme_store/tests/amphibian_invalid_schema.csv |
+| **fme_feature_type** | CSV |
+| **fme_type** | fme_no_geom |
+
+-   [**FeatureWriter**](https://engage.safe.com/transformers/feature-writer/) - write features from workspace allowing additional output ports for continuing workflow.
+
+    -   Use as initiator for the next FeatureReader when importing multiple tables into a database so that a single workflow avoids a locked database when importing the next table
+    -   Use SQL To Run After Write in Advanced section - 'UPDATE table SET fieldname = rowid WHERE fieldname IS NULL' to populate field with running integers
+    -   Change Qualify Field Values to No and Unqualified field value handling to Remove Unsafe Characters in Parameters - Advanced to remove added double quotes around text
+    -   Use [**JSONFormatter**](https://docs.safe.com/fme/2023.0/html/FME-Form-Documentation/FME-Transformers/Transformers/jsonformatter.htm) - to format JSON text for output - "Pretty Print" Formatting Type and "text_line_data" as result attribute. Export as Text File using **FeatureWriter** transformer
+
+-   [**Directory and File Pathnames**](https://docs.safe.com/fme/html/FME-Form-Documentation/FME-ReadersWriters/path/path.htm) - read file paths within a directory as **path_windows** attribute which can used as Dataset in **FeatureReader** to read in features from multiple files. Import file into Attributes to Expose to select attributes to import, including **fme_basename** to include file name.
+
+| Parameters User Attributes | Value |
+|------------------------------------|------------------------------------|
+| **path_windows** | C:/Files/packages/fme_store/tests/amphibian_invalid_schema.csv |
+| **path_rootname** | amphibian_invalid_schema |
+| **path_filename** | amphibian_invalid_schema.csv |
+| **path_extension** | csv |
+| **path_directory_windows** | C:/Files/packages/fme_store/tests |
+| **path_type** | file |
+
+| Parameters Format Attributes | Value                             |
+|------------------------------|-----------------------------------|
+| **fme_basename**             | tests                             |
+| **fme_dataset**              | C:/Files/packages/fme_store/tests |
+| **fme_feature_type**         | PATH                              |
+| **fme_type**                 | fme_no_geom                       |
+
+Attribute field transformers
+
+-   [**FeatureJoiner**](https://engage.safe.com/transformers/feature-joiner/) - left, inner or full join multiple table attribute fields based on primary-foreign keys. Duplicate field names and geometry fields can be selected from either left or right tables. Inner join includes Unjoined outputs equivalent to antijoins. [**FeatureMerger**](https://engage.safe.com/transformers/feature-merger/) merges attributes from a supplier table on to requestor table based on matching keys, includes creating lists attributes and excluding NULLs in joins
+
+-   [**AttributeRenamer**](https://engage.safe.com/transformers/attribute-renamer/) - rename fields
+
+-   [**AttributeCreator**](https://engage.safe.com/transformers/attribute-creator/) - create new fields with optional attribute field value, default value, conditional value, user parameter or Null value. **Adjacent feature attributes** use previous and subsequent attribute values for moving value calculations. [**Counter**](https://engage.safe.com/transformers/counter/) adds new field with row numbers as running integer.
+
+-   [**AttributeRemover**](https://engage.safe.com/transformers/attribute-remover/) - removes attribute fields, [**AttributeKeeper**](https://engage.safe.com/transformers/attribute-keeper/) keeps attribute fields, removing the rest of the fields
+
+-   [**AttributeSplitter**](https://engage.safe.com/transformers/attribute-splitter/) - splits an attribute field value into a list using a defined delimiter. Call the list name the same as the attribute field name to overwrite the attribute field with this list. Use
+
+    -   **AttributeCreator** to add elements in this list - list{0}, list{1} etc into separate attribute fields
+    -   [**ListExploder**](https://engage.safe.com/transformers/list-exploder/) to add elements in this list into separate feature rows. Clear Element Index so that this additional field is not also included.
+
+-   [**JSONExtractor**](https://docs.safe.com/fme/html/FME-Form-Documentation/FME-Transformers/Transformers/jsonextractor.htm) - extract part of JSON into a feature attribute, using **json\["key_name"\]** query. [**JSONValidator**](https://docs.safe.com/fme/2023.0/html/FME-Form-Documentation/FME-Transformers/Transformers/jsonvalidator.htm) - validates JSON
+
+Feature row transformers
+
+-   [**Junction**](https://docs.safe.com/fme/html/FME-Form-Documentation/FME-Form/Workbench/Using-Junctions.htm) combines feature rows into a single table before moving on with transformation pipeline, [**FeatureHolder**](https://engage.safe.com/transformers/feature-holder/) only moves on once all features have been combined
+
+-   [**AttributeCombiner**](https://hub.safe.com/publishers/pacific-spatial-solutions/transformers/attributecombiner) - custom transformer concatenating attribute values from multiple feature rows into a single feature row based on a grouped attribute field, adding a delimiter string and optional prefix or suffix values
+
+-   [**AttributeExploder**](https://engage.safe.com/transformers/attribute-exploder/) + **AttributeFilter** - converts attribute features from wide to long format, creating attribute_name and attribute_value columns. Filter attribute_name column to retain columns used for transposing to long format
+
+-   [**Sampler**](https://engage.safe.com/transformers/sampler/)- samples number of feature rows, N, from dataset as defined by Sampling Rate. Rows sampled as first N, last N, every Nth or randomized
+
+-   [**TestFilter**](https://engage.safe.com/transformers/test-filter/) - route feature rows to named output ports based on whether attribute field value contains text including regular expression, has a value, is Null, empty or missing. Use composite test with brackets to test multiple attributes. [**Tester**](https://engage.safe.com/transformers/tester/) routes to a passed or failed output port. Inverse test by using NOT. [**AttributeFilter**](https://engage.safe.com/transformers/attribute-filter/) - route feature rows to output ports based on attribute field value, Null, empty, missing or Unfiltered. [**AttributeRangeFilter**](https://engage.safe.com/transformers/attribute-range-filter/) - route feature rows to named output ports based on range values
+
+-   [**DuplicateFilter**](https://engage.safe.com/transformers/duplicate-filter/) - routes feature rows into first feature row with an unique value based on one or more attribute fields and duplicate rows based on the same attribute field(s). [**Matcher**](https://engage.safe.com/transformers/matcher/) matches features on both attributes and/or geometry.
+
+-   [**Sorter**](https://engage.safe.com/transformers/sorter/) sorts attribute fields values based on a named attribute field
+
+Attribute value transformers
+
+-   [**AttributeManager**](https://engage.safe.com/transformers/attribute-manager/) **-** set attribute field value, default value, conditional value, user parameter or Null value. **Adjacent feature attributes** use previous and subsequent attribute values for moving value calculations
+
+-   [**AttributeValueMapper**](https://engage.safe.com/transformers/attribute-value-mapper/) - map a single attribute field's original attribute values to new attribute values, overwriting or creating a new attribute field. Unmapped attribute values are either set a default value eg Unmapped ATTRIBUTEFIELDNAME value: \@Value(ATTRIBUTEFIELDNAME), attribute field value, user parameter, Null value or stops translation. **AttributeCreator** with conditional value using contains REGEX operator matches partial strings
+
+-   [**StringReplacer**](https://engage.safe.com/transformers/string-replacer/) maps a single attribute value across multiple attribute fields, including using regular expressions capture groups in brackets in Text to Replace and numeric reference eg \\1 of the capture group in Replacement Text
+
+-   [**NullAttributeMapper**](https://engage.safe.com/transformers/null-attribute-mapper/) -map NULL, missing, empty or attribute values to NULL or single attribute value across multiple attribute fields. Only two attribute values can be mapped at a time.
+
+-   [**AttributeTrimmer**](https://engage.safe.com/transformers/attribute-trimmer/) **-** removes white space or named characters from start or / and end of attribute value
+
+-   [**ExpressionEvaluator**](https://engage.safe.com/transformers/expression-evaluator/) - performs a mathematical calculation on a numeric attribute field value using \@Value() for a single attribute and \@CurrentAttribute() for multiple attributes to retrieve current values in Arithmetric Expression
+
+-   [**AttributeRounder**](https://engage.safe.com/transformers/attribute-rounder/) - rounds numeric attribute values to a number of decimal places
+
+-   [**DateTimeConvertor**](https://engage.safe.com/transformers/date-time-converter/) - format datetimes using [FME DateTime functions](http://docs.safe.com/fme/html/FME_Desktop_Documentation/FME_Transformers/!Transformer_Parameters/Date-Time-Functions.htm#@DateTimeParse) with optional repair and ignore nulls, empties and missing values. eg input format FME (auto detect), output format %Y-%m-%d (ISO date)
+
+-   [**DateTimeCalculator**](https://engage.safe.com/transformers/date-time-calculator/) - Adds or subtracts years, days, hours, minutes or seconds, or duration in [ISO 8601 duration format](http://docs.safe.com/fme/2017.0/html/FME_Desktop_Documentation/FME_Transformers_HelpPane/!Transformer_Parameters/standard_fme_date_time_format.htm#ISO-8601-Duration-Format), from FME datetime. ISO 8601 durations can be created using [\@DateTimeIntervalCreate](http://docs.safe.com/fme/2017.0/html/FME_Desktop_Documentation/FME_Transformers_HelpPane/!Transformer_Parameters/Date-Time-Functions.htm) function
+
+-   [**StringConcatenator**](https://engage.safe.com/transformers/string-concatenator/) - concatenates attribute values into a single attribute value
+
+-   [**ListConcatenator**](https://engage.safe.com/transformers/list-concatenator/) **-** concatenates a list into a single attribute value separated by a delimiter
+
+-   [**CRCCalculator**](https://engage.safe.com/transformers/crc-calculator/) - creates hexidecimal string based on attribute field(s) values
+
+-   [**UUIDGenerator**](https://engage.safe.com/transformers/uuid-generator/) - creates a Universally Unique IDentifier attribute value for each unique row
+
+-   [**StatisticsCalculator**](https://docs.safe.com/fme/html/FME-Form-Documentation/FME-Transformers/Transformers/statisticscalculator.htm)- calculate the min, max, total count, numeric or value count (missing values not included), sum, mean, median, mode, range, standard deviation and histogram on a grouped attribute field
+
+Geometry transformers
+
+-   [**GeometryValidator**](https://engage.safe.com/transformers/geometry-validator/) Detects and optionally repairs selected geometry issues
+
+-   [**2DBoxReplacer**](https://engage.safe.com/transformers/2d-box-replacer/) + [**GeometryExtractor**](https://engage.safe.com/transformers/geometry-extractor/) - creates bounding box polygon geometry based on min x, min y, max x, max y coordinates. Map the min x and max x values to maximum and minimum x coordinates to create the geometry in an anti-clockwise direction
+
+-   [**GeometryReplacer**](https://engage.safe.com/transformers/geometry-replacer/) + [**GeometryExtractor**](https://engage.safe.com/transformers/geometry-extractor/) **-** creates point, line or polygon geometry based on geometry source fields
+
+-   [**Aggregator**](https://engage.safe.com/transformers/aggregator/) - dissolve geometry features to multi-geometry grouped on an attribute value. [**Deaggregator**](https://engage.safe.com/transformers/deaggregator/) converts multi-geometries to single geometry feature components
+
+-   [**Dissolver**](https://engage.safe.com/transformers/dissolver/) **-** Dissolves polygon features by removing common boundaries to create larger single polygon feature
+
+-   [**HullAccumulator**](https://engage.safe.com/transformers/hull-accumulator/) - creates convex or concave hulls for a group of geometry features
+
+-   [**SpatialFilter**](https://engage.safe.com/transformers/spatial-filter/) **-** applies spatial predicate testing whether filter geometry intersects, disjoint from, within, contains, equals or touches candidate geometry ([Spatial relationships defined](https://docs.safe.com/fme/html/FME-Form-Documentation/FME-Transformers/Transformers/spatialrelations.htm)**)** using Group By for grouped intersection
+
+-   [**AreaOnAreaOverlayer**](https://engage.safe.com/transformers/area-on-area-overlayer/) + **Tester** - spatial intersection of polygon geometries.
+
+-   [**LineOnAreaOverlayer**](https://engage.safe.com/transformers/line-on-area-overlayer/) + **Tester** - spatial intersection of line geometries. Use Group By for grouped intersection with Split Lines with Areas Mode and Merge Attributes (using Prefix Incoming Accumulation Mode) to assign line intersections with polygon key
+
+-   [**PointOnAreaOverlayer**](https://engage.safe.com/transformers/point-on-area-overlayer/) + **Tester** - spatial intersection of point geometries. Use Group By for grouped intersection with Areas first = No and Merge Attributes (using Prefix Incoming Accumulation Mode) to assign point intersections with polygon key.
+
+-   [**AreaCalculator**](https://engage.safe.com/transformers/area-calculator/) - calculate geometry areas
+
+Database transformers
+
+-   [**SQLExecutor**](https://engage.safe.com/transformers/sql-executor/) **-** executes queries against a database triggered by an initiator input port. [**SQLCreator**](https://engage.safe.com/transformers/sql-creator/) executes queries against a database but has no input port
+
+Validation transformers
+
+-   [**AttributeValidator**](https://engage.safe.com/transformers/attribute-validator/) - validate field attribute values based on data type, range, string case, minimum and maximum text length, text in list of values or regular expression, Not Null, unique values, or Has a Value, routing field rows, including **\_fme_validation_message** field to passed or failed output port. Add \_fme*\_*validation_message_list{} as List Attribute in [**ListExploder**](https://engage.safe.com/transformers/list-exploder/) connected to the failed port to export one row for each failed validation.
+
+Quality Assurance transformers
+
+-   [**ChangeDetector**](https://engage.safe.com/transformers/change-detector/)- detects changes between two versions of a dataset based on a shared attribute id field.
+
+Scripting transformers
+
+-   [**RCaller**](https://engage.safe.com/transformers/r-caller/) - import FME tables and parameters into a R script as Data Frames, either saving results directly or passing output as a single row dataframe to compulsory fmeOutput object.
+
+    -   Requires R Interpreter Executable path set in FME Tools - FME Options - Translation - R Interpreter Executable C:\\Program Files\\R\\R-4.2.3\\bin\\Rscript.exe
+    -   Packages on CRAN installed on machine used by FME - sqldf
+    -   Packages on CRAN installed on machine used by R script, including magrittr package if %\>% pipe is used
+    -   Compulsory fmeOutput object assigned output as either a single row data frame or use fmeOutput \<- data.frame(1) if output not required
+    -   FME parameters passed in as (\$PARAMETER_NAME)
+    -   Paths are converted from single to double backslashes in FME user parameter using r"(\$(USER PARAMETER))"
+
+Directory transformers
+
+-   [**FilenamePartExtractor**](https://engage.safe.com/transformers/filename-part-extractor/)extract directory name, root name, file name and extension from file path
+
+Log transformers
+
+-   [**Logger**](https://engage.safe.com/transformers/logger/) - log messages, warnings and errors to translation log
+
+View transformers
+
+-   [**Inspector**](https://engage.safe.com/transformers/inspector/) - view features in FME Data Inspector
+
+### Other transformers
+
+Feature readers and writers
+
+-   **S3Connector** connects to the Amazon Simple Storage Service (S3) file storage service to upload, download, delete or list files/folders in a S3 bucket
+
+Attribute field transformers
+
+Feature row transformers
+
+-   **StringSearcher** includes using regular expressions, **StringCaseChanger**
+
+Attribute value transformers
+
+Geometry transformers
+
+-   **VertexCreator** - create point geometry from x, y co-ordinates
+
+-   **SpatialRelator**
+
+-   **LineOnLineOverlayer, PointOnLineOverlayer, PointOnPointOverlayer**
+
+-   **Intersector**
+
+-   **Clipper**
+
+-   **Reprojector**
+
+-   **GeometryRemover**
+
+List transformers
+
+-   **JSONFlattener** - convert JSON to a list
+
+-   **ListIndexer** - convert a list element to an attribute
+
+-   **ListBuilder, ListDuplicateRemover, ListConcatentor, ListElementCounter, ListSorter, ListSearcher, ListSummer, ListRangeExtractor, ListHistogrammer**
+
+Parameter transformers
+
+-   **ParameterFetcher**
+
+-   **VariableSetter**, **VariableRetriever** - read and write attributes to and from parameters. Can be used instead of looping in custom transformers
+
+-   **AttributeExposer** - exposes parameters to transformers and writers
+
+Looping transformers
+
+-   **ModuloCounter** splits features in to groups that may be used in parallel processing in custom transformers
+
+-   **Cloner.** Can be used instead of looping in custom transformers
+
+Validation transformers
+
+Scripting transformers
+
+Log transformers
+
+View transformers
+
+Advanced FME training (Tensing 2024-02)
+
+-   **3DForcer**, **2DForcer**
+
+-   **KMLPropertySetter**
+
+-   **HTMLReportGenerator**
+
+-   **GOIDGenerator**
+
+-   **EnvironmentVariableFetcher**
+
+-   **PointOnRasterValueExtractor**
+
+-   **SubstringExtractor**
+
+-   **Bufferer**
+
+-   **RasterMosiacker**
+
+-   **UniqueValueLogger (Custom tranformer)**
+
+-   **PhotoCoordinateExtractor (Custom transformer)**
+
+-   **CoordinateSystemSetter**
+
+-   **HTTPCaller**
+
+FME Flow training (Tensing 2024-03)
+
+-   **NoFeaturesTester** (Custom transformer)
+-   **FME Flow Automations Writer** with FeatureType = automatic exposes output as output port in FME Flow automation workspace action to be used as input to next automated action
+-   **FMEFlowJobSubmitter** equivalent to WorkspaceRunner transformer for use in FME Flow
+-   **WebSocketSender, WebSocketReciever** - used in FME Flow message streaming service
+
+## FME Form parameters
+
+| Parameter              | Value                                       |
+|------------------------|---------------------------------------------|
+| **FME_BUILD_DATE**     | 20230531                                    |
+| **FME_BUILD_NUM**      | 23310                                       |
+| **FME_HOME**           | C:/Program Files/FME                        |
+| **FME_MR_DIR**         | C:/Files/packages/fme_store/fme/Workspaces/ |
+| **FME_MF_NAME**        | batch_validate_files.fmw                    |
+| **FME_OS**             | Windows                                     |
+| **FME_PRODUCT_NAME**   | FME(R) 2023.0.0.2                           |
+| **FME_WORKSPACE_DIR**  | C:/Files/packages/fme_store/fme/Workspaces/ |
+| **FME_WORKSPACE_NAME** | batch_validate_files.fmw                    |
+| **WORKSPACE_NAME**     | batch_validate_files                        |
+
+## FME Flow parameters
+
+| Parameter | Value |
+|------------------------------------|------------------------------------|
+| **FME_SHAREDRESOURCE_DATA** | FME Flow path to data stored in Resources directory |
+
+## **FME Feature Functions**
+
+-   **\@CurrentAttribute()** - returns the current attribute value
+-   @DateTimeFormat(@DateTimeRound(@DateTimeNow(), down, seconds, 1), %Y-%m-%d %H:%M:%S) for current date rounded to nearest second

@@ -1,0 +1,13 @@
+---
+title:
+author: "Graham French"
+date-modified: "`r lubridate::today()`"
+format: html
+execute: 
+  eval: false
+knitr:
+  opts_chunk:
+    comment: "#>"
+editor: visual
+---
+

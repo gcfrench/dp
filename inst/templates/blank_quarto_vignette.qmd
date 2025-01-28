@@ -1,0 +1,10 @@
+---
+title:
+author: "Graham French"
+date-modified: "`r lubridate::today()`"
+output: html_vignette
+vignette:
+execute: 
+  eval: false
+editor: visual
+---

@@ -1,0 +1,31 @@
+---
+title: "tasks"
+author: "Graham French"
+date-modified: "`r lubridate::today()`"
+output: html_vignette
+vignette: >
+  %\VignetteIndexEntry{dp}
+  %\VignetteEngine{quarto::html}
+  %\VignetteEncoding{UTF-8}
+execute: 
+  eval: false
+knitr:
+  opts_chunk:
+    comment: "#>"
+editor: visual
+---
+
+This **tasks** section contains a list of tasks and questions, with their current status [^1]
+
+[^1]:
+    ::: callout-tip
+    ### status icons
+
+    -   ✔️completed
+    -   ❗ awaiting completion
+    -   ✖️no action required
+    -   ❓question to be answered
+    :::
+
+## Tasks and questions
+

@@ -1,0 +1,57 @@
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+------------------------------------------------------------------------
+
+<!-- badges: start -->
+
+[![Lifecycle:
+maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html)
+<!-- badges: end -->
+
+## Overview
+
+This data project contains the S7 properties, generic functions and
+methods used in the the management and maintenance of this project.
+
+## Installation
+
+The latest zipped package directory can be found on the network.
+
+Once downloaded onto your machine unzip this folder, add the project as
+a new project in RStudio and then install the required R packages from
+CRAN by running the following commands.
+
+``` r
+install.packages("renv")
+renv::activate()
+renv::restore()
+```
+
+Once these additional packages have been installed, run **Build-Install
+and Restart** in RStudio to build and install the package on your
+machine.
+
+The package documentation can be viewed by opening the **index.html**
+file, found in the docs folder, in your web browser.
+
+## Usage
+
+The documentation is split up into five main sections
+
+The **information** section contains information documents relating to
+the project
+
+The **lookup and functions** section contains the functions used in the
+R package. These functions are found in the R folder of the project. The
+inst folder contains the file templates and scripts used to manage and
+maintain the data project.
+
+The **tasks** and **products** sections list the ongoing and completed
+tasks and questions, as well as the package products for each data
+project version.
+
+## Publication
+
+This data project has been submitted to a public [dp
+repository](https://github.com/gcfrench/dp) on GitHub.

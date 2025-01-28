@@ -1,0 +1,31 @@
+---
+title: "tasks"
+author: "Graham French"
+date-modified: "`r lubridate::today()`"
+output: html_vignette
+vignette: >
+  %\VignetteIndexEntry{tasks}
+  %\VignetteEngine{quarto::html}
+  %\VignetteEncoding{UTF-8}
+execute: 
+  eval: false
+editor: visual
+---
+
+This **tasks** section contains a list of tasks and questions, with their current status [^1]
+
+[^1]:
+    ::: callout-tip
+    ### status icons
+
+    -   ✔️completed
+    -   ❗ awaiting completion
+    -   ✖️no action required
+    -   ❓question to be answered
+    :::
+
+## Tasks and questions
+
+## 2024-11-25
+
+-   ❗include superseded lifecycle badge in data project

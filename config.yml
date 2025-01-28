@@ -1,0 +1,8 @@
+default:
+# local
+  local_folder: "C:/Files/packages"
+# network
+
+development:
+
+production:

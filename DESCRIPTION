@@ -1,0 +1,46 @@
+Package: dp
+Title: Data project
+Version: 0.3.8
+Authors@R: 
+    person("Graham", "French", , "graham.french@jncc.gov.uk", role = c("aut", "cre"))
+Description: This package contains the S7 properties, generic functions
+    and methods used to maintain a data project.
+License: OGL
+Imports: 
+    attachment,
+    desc,
+    devtools,
+    fs,
+    gert,
+    gitcreds,
+    glue,
+    here,
+    janitor,
+    lifecycle,
+    lubridate,
+    pkgdown,
+    purrr,
+    quarto,
+    readr,
+    renv,
+    rmarkdown,
+    S7,
+    stringr,
+    usethis,
+    vctrs,
+    zip
+Suggests: 
+    assertive.properties,
+    assertive.strings,
+    assertive.types,
+    assertr,
+    assertthat,
+    data.validator,
+    dplyr,
+    knitr,
+    palmerpenguins
+VignetteBuilder: 
+    quarto
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
