@@ -1,0 +1,4 @@
+Name: Code example
+Description: An example of code text inserted into RStudio
+Binding: code_example
+Interactive: false

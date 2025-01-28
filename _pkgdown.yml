@@ -15,6 +15,7 @@ reference:
     - add_quarto_vignette
     - add_typst_document
     - add_unit_test
+    - code_example
     - create_new_package
     - deactivate
     - document_all_functions_and_lookups

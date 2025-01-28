@@ -1,7 +1,11 @@
-# dp 0.3.10
+# dp 0.4.1
+
+# dp 0.4.0 <font size="4">2025-01-28</font>
+
+* added **code_example** inserting code example text into RStudio using Rstudio's
+Addins functionality, as described in [RStudio Addins](https://rstudio.github.io/rstudioaddins/)
 
 # dp 0.3.9 <font size="4">2025-01-28</font>
-
 
 - renamed **access_remote_version_control**, **include_local_version_control** and
 **sync_local_version_control**

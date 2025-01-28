@@ -1879,4 +1879,23 @@ pkgdown_quality_assurance_section <- function() {
     "  - unnest_failed_validation_results")
 }
 
-
+# ------------------------------------------------------------------------------
+#' @title code example
+#'
+#' @description
+#' A code example pasted into RStudio and added to the RStudio Addins, as described
+#' in [RStudio Addins](https://rstudio.github.io/rstudioaddins/)
+#' 
+#' @details
+#' This code example function is automatically added into the RStudio's Addins list
+#' by adding the following fields in inst/rstudio/addins.dcf file
+#' 
+#' Name: Name of code example
+#' Description: Description of code example
+#' Binding: Code example function name
+#' Interactive: false
+#' 
+#' @export
+code_example <- function() {
+  rstudioapi::insertText("CODE EXAMPLE TEXT WRITTEN HERE")
+}
