@@ -1,4 +1,8 @@
-# dp 0.4.1
+# dp 0.4.5
+
+# dp 0.4.4
+
+* added **activate** and **deactivate** functions as RStudio Addins
 
 # dp 0.4.0 <font size="4">2025-01-28</font>
 
