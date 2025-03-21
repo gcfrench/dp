@@ -1,4 +1,9 @@
-# dp 0.4.5
+# dp 0.4.6
+
+* added a code examples to apply a function to a list column, create a list column
+within a data frame, iterate through a data frame to create multiple parameterized 
+reports, save a data frame to a spreadsheet, select a file path and tidyup unspecified
+objects in the global environment
 
 # dp 0.4.4
 

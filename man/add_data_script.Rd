@@ -24,16 +24,16 @@ ROxygen comments added to function script in R folder
 \item @details
 \preformatted{
   <R CODE CHUNK>
-    DATASET_NAME |> 
-       dplyr::select(FIELDNAMES) |> 
-       gt::gt_preview(top_n = nrow(DATASET_NAME) |> 
-       gt::tab_style(style = gt::cell_text(style = "italic"), 
-                     locations = gt::cells_body(columns = name)) |> 
+    DATASET_NAME |>
+       dplyr::select(FIELDNAMES) |>
+       gt::gt_preview(top_n = nrow(DATASET_NAME) |>
+       gt::tab_style(style = gt::cell_text(style = "italic"),
+                     locations = gt::cells_body(columns = name)) |>
        gt::tab_options(table.align='left')
   <R CODE CHUNK>
 }
 \preformatted{
-  @format A tibble with  <backslash> r nrow(DATASET_NAME) <backslash> rows and  
+  @format A tibble with  <backslash> r nrow(DATASET_NAME) <backslash> rows and
           <backslash> r ncol(DATASET_NAME) <backslash> variables
   \describe{
     \item{FIELDNAME}{DESCRIPTION}

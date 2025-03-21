@@ -15,7 +15,12 @@ reference:
     - add_quarto_vignette
     - add_typst_document
     - add_unit_test
-    - code_example
+    - code_example_apply_function_list_column
+    - code_example_create_list_column
+    - code_example_multiple_parameterized_reports
+    - code_example_save_to_spreadsheet
+    - code_example_select_file
+    - code_example_tidyup_unspecified_objects
     - create_new_package
     - deactivate
     - document_all_functions_and_lookups

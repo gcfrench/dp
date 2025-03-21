@@ -1,4 +1,29 @@
-Name: Code example
-Description: An example of code text inserted into RStudio
-Binding: code_example
+Name: Code example apply function to list column
+Description: Code example iteratively applies a function to a list column. Text is inserted into RStudio
+Binding: code_example_apply_function_list_column
+Interactive: false
+
+Name: Code example create list column
+Description: Code example to create a list column within a data frame. Text is inserted into RStudio
+Binding: code_example_create_list_column
+Interactive: false
+
+Name: Code example create multiple parameteized reports
+Description: Code example to iterate through a data frame creating multiple parameterized reports. Text is inserted into RStudio
+Binding: code_example_multiple_parameterized_reports
+Interactive: false
+
+Name: Code example save to spreadsheet
+Description: Code example to save a data frame to an Excel spreadsheet. Text is inserted into RStudio
+Binding: code_example_save_to_spreadsheet
+Interactive: false
+
+Name: Code example select a file path
+Description: Code example to select a file path. Text is inserted into RStudio
+Binding: code_example_select_file
+Interactive: false
+
+Name: Code example tidyup unspecified objects
+Description: Code example to tidy up unspecified objects, removing them from the global environment. Text is inserted into RStudio
+Binding: code_example_tidyup_unspecified_objects
 Interactive: false

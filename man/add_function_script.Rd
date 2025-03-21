@@ -14,36 +14,5 @@ This generic function adds a function script in the R folder by running
 \href{https://usethis.r-lib.org/reference/use_r.html}{usethis use_r function}
 }
 \details{
-Roxygen comments
-\itemize{
-\item @title TITLE
-\item @author
-\item @inherit FUNCTION_NAME ROXGYEN COMMENT
-\item @description
-\preformatted{
- <backslash> r lifecycle::badge('experimental') <backslash>
-}
-\item @details
-\item @section
-\item @inheritSection
-\item @seealso
-\item @keywords KEYWORD NAME
-\item @family FAMILY NAME
-\item @inheritParams PARENT FUNCTION NAME
-\item @param PARAMETER NAME, TYPE AND DESCRIPTION
-\item @export / @keywords internal
-\item @example MAN/EXAMPLES/EXAMPLE.R
-\preformatted{
-  @examples
-   \\\dontrun{
-     suppressPackageStartupMessages({
-       suppressWarnings({
-         library(PACKAGE_NAME)
-       })
-     })
-     EXAMPLE SCRIPT
-  }
-}
-FUNCTION NAME
-}
+
 }
