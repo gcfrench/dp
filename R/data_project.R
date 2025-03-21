@@ -1953,23 +1953,3 @@ code_example_tidyup_unspecified_objects <- code_example(text = 'rm(list=ls()[!ls
 
 
 
-
-
-'<-- FUNCTION NAME --> <- function(...) {
-  <-- VARIABLE NAME --> <- list(...)
-  
-  quarto::quarto_render(
-    input = "<-- QUARTO REPORT NAME.qmd -->",
-    execute_params = list("<-- PARAMETER NAME --> " = <-- VARIABLE NAME -->$<-- COLUMN NAME -->)
-  )
-} 
-<-- safe_FUNCTION_NAME --> <- purrr::safely(<-- FUNCTION_NAME -->)
-
-output <- pmap(<-- DATA FRAME -->, <-- safe_FUNCTION_NAME -->) |> 
-  transpose()'
-
-
-
-
-
-
