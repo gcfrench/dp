@@ -1,3 +1,5 @@
+# dp 0.4.7
+
 # dp 0.4.6
 
 * added a code examples to apply a function to a list column, create a list column
