@@ -1,6 +1,9 @@
+# dp 0.4.9
+
 # dp 0.4.8
 
-# dp 0.4.7
+* added code examples to add a list column into a data frame and extract a column
+from a data frame's list column
 
 # dp 0.4.6
 

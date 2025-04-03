@@ -1,6 +1,6 @@
 Package: dp
 Title: Data project
-Version: 0.4.8
+Version: 0.4.9
 Authors@R: 
     person("Graham", "French", , "graham.french@jncc.gov.uk", role = c("aut", "cre"))
 Description: This package contains the S7 properties, generic functions
