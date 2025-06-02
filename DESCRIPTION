@@ -1,6 +1,6 @@
 Package: dp
 Title: Data project
-Version: 0.4.9
+Version: 0.4.10
 Authors@R: 
     person("Graham", "French", , "graham.french@jncc.gov.uk", role = c("aut", "cre"))
 Description: This package contains the S7 properties, generic functions
@@ -12,6 +12,7 @@ Imports:
     attachment,
     desc,
     devtools,
+    dplyr,
     fs,
     gert,
     gitcreds,
@@ -29,6 +30,8 @@ Imports:
     rstudioapi,
     S7,
     stringr,
+    tibble,
+    tidyr,
     usethis,
     vctrs,
     zip
@@ -39,7 +42,6 @@ Suggests:
     assertr,
     assertthat,
     data.validator,
-    dplyr,
     knitr,
     palmerpenguins
 VignetteBuilder: 
