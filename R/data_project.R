@@ -1905,6 +1905,30 @@ code_example_apply_function_list_column <- code_example(text = 'df |>  mutate(<-
 #' @export
 code_example_create_list_column <- code_example(text = 'group_nest(<-- UNNESTED COLUMNS NAMES -->, .key = "<-- LIST COLUMN NAME  -->")')
 
+#' @title code example add list column
+#'
+#' @description
+#' This code example adds a list column into a data frame
+#'
+#' @export
+code_example_add_list_column <- code_example(text = '
+tibble::add_column(list("<-- COLUMN NAME -->" = "<-- COLUMN VALUE -->") |>
+  tidyr::as_tibble() |>
+  tidyr::nest(.key = "<-- LIST COLUMN NAME -->"))')
+
+#' @title code example extract column from list column
+#'
+#' @description
+#' This code example extracts a column from a list column within a data frame
+#'
+#' @export
+code_example_extract_column_from_list_column <- code_example(text = '
+dplyr::mutate("<-- COLUMN NAME -->" = purrr::map_xxx(
+  `<-- LIST COLUMN NAME  -->`,
+  function(.x) {
+    .x |> purrr::pluck("<-- LIST COLUMN, COLUMN NAME -->")
+  }
+))')
 
 #' @title code example create multiple parameterized reports
 #'
@@ -1949,7 +1973,6 @@ code_example_select_file <- code_example(text = 'path(choose.files(default = "<-
 #'
 #' @export
 code_example_tidyup_unspecified_objects <- code_example(text = 'rm(list=ls()[!ls() %in% c("<-- OBJECT NAME TO KEEP -->")])')
-
 
 
 

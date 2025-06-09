@@ -3,9 +3,19 @@ Description: Code example iteratively applies a function to a list column. Text 
 Binding: code_example_apply_function_list_column
 Interactive: false
 
+Name: Code example add list column
+Description: Code example to add a list column into a data frame. Text is inserted into RStudio
+Binding: code_example_add_list_column
+Interactive: false
+
 Name: Code example create list column
 Description: Code example to create a list column within a data frame. Text is inserted into RStudio
 Binding: code_example_create_list_column
+Interactive: false
+
+Name: Code example extract column from list column
+Description: Code example to extract a column from a list column within a data frame. Text is inserted into RStudio
+Binding: code_example_extract_column_from_list_column
 Interactive: false
 
 Name: Code example create multiple parameteized reports
@@ -27,3 +37,4 @@ Name: Code example tidyup unspecified objects
 Description: Code example to tidy up unspecified objects, removing them from the global environment. Text is inserted into RStudio
 Binding: code_example_tidyup_unspecified_objects
 Interactive: false
+

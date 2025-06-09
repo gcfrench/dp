@@ -15,7 +15,9 @@ reference:
     - add_quarto_vignette
     - add_typst_document
     - add_unit_test
+    - code_example_add_list_column
     - code_example_apply_function_list_column
+    - code_example_extract_column_from_list_column 
     - code_example_create_list_column
     - code_example_multiple_parameterized_reports
     - code_example_save_to_spreadsheet
@@ -58,9 +60,10 @@ navbar:
       menu:
       - text: "Run validation checks"
         href: articles/validation_checks.html
-      - text: -----
       - text: "FME transformer notes"
         href: articles/fme_transformers.html
+      - text: "Using Large Language models in R"
+        href: articles/using_ai_in_r.html
       - text: -------
     - text: "lookups and functions"
       href: reference/index.html

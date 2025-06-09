@@ -1,8 +1,7 @@
-# dp 0.4.11
+# dp 0.4.12
 
-# dp 0.4.10
-
-# dp 0.4.9
+* added **Using Large Language Models in R** article as vignette into data project 
+documentation
 
 # dp 0.4.8
 

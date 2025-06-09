@@ -125,7 +125,7 @@ Feature readers and writers
     -   Change encoding to UTF-8 in parameters - Character Encoding to handle unicode characters
 
 | Parameters attributes to expose | Value |
-|------------------------------------|------------------------------------|
+|----|----|
 | **fme_basename** | amphibian_invalid_schema |
 | **csv_line_number** | 2, 3, 4, 5 |
 | **csv_number_of_fields** | 3 |
@@ -144,7 +144,7 @@ Feature readers and writers
 -   [**Directory and File Pathnames**](https://docs.safe.com/fme/html/FME-Form-Documentation/FME-ReadersWriters/path/path.htm) - read file paths within a directory as **path_windows** attribute which can used as Dataset in **FeatureReader** to read in features from multiple files. Import file into Attributes to Expose to select attributes to import, including **fme_basename** to include file name.
 
 | Parameters User Attributes | Value |
-|------------------------------------|------------------------------------|
+|----|----|
 | **path_windows** | C:/Files/packages/fme_store/tests/amphibian_invalid_schema.csv |
 | **path_rootname** | amphibian_invalid_schema |
 | **path_filename** | amphibian_invalid_schema.csv |
@@ -394,7 +394,7 @@ FME Flow training (Tensing 2024-03)
 ## FME Flow parameters
 
 | Parameter | Value |
-|------------------------------------|------------------------------------|
+|----|----|
 | **FME_SHAREDRESOURCE_DATA** | FME Flow path to data stored in Resources directory |
 
 ## **FME Feature Functions**

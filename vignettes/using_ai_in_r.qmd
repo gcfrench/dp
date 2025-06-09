@@ -1,0 +1,54 @@
+---
+title: "Using Large Language Models in R"
+author: "Graham French"
+date-modified: "`r lubridate::today()`"
+output: html_vignette
+vignette: >
+  %\VignetteIndexEntry{Using Large Language Models in R}
+  %\VignetteEngine{quarto::html}
+  %\VignetteEncoding{UTF-8}
+execute: 
+  eval: false
+editor: visual
+---
+
+### URLs
+
+-   [openAI](https://openai.com/) and [chatGPT](https://chatgpt.com/)
+
+### Blogs
+
+-   [The Modern R Stack for Production AI](https://blog.stephenturner.us/p/r-production-ai) (Stephen Turner 2025-06-02)
+-   [Which AI model writes the best R code?](https://posit.co/blog/r-llm-evaluation/) (Sara Altman and Simon Couch)
+-   [Computer vision with LLMs in R](https://posit.co/blog/kuzco-computer-vision-with-llms-in-r/) (Frank Hull)
+
+### Packages
+
+-   [ellmer](https://ellmer.tidyverse.org/) - use large language models (LLM) from R
+-   [gander](https://simonpcouch.github.io/gander/) - allows large language models to talk to your R environment
+-   [ragnar](https://ragnar.tidyverse.org/) - helps implement Retrieval-Augmented Generation (RAG) workflows
+
+### Other packages (not on CRAN)
+
+-   [btw](https://posit-dev.github.io/btw/) - describe your R environment to a large language model (in development)
+-   [vitals](https://vitals.tidyverse.org/) - large language model evaluation in R
+-   [kuzco](https://github.com/frankiethull/kuzco) - computer vision assistant library in R, using Ollama
+
+### **Uses**
+
+#### **Chatbots**
+
+-   [shinychat](https://posit-dev.github.io/shinychat/r/index.html) - Chat UI component for Shiny for R. with [Ellmer Assistant](https://jcheng.shinyapps.io/ellmer-assistant/) Chatbot
+-   [Shiny Assistant](https://shiny.posit.co/blog/posts/shiny-assistant/), with live [Shiny Assistant Chatbot](https://gallery.shinyapps.io/assistant/)
+
+**Structured data extraction**
+
+#### Programming
+
+-   [chores](https://simonpcouch.github.io/chores/) - a library of ergonomic LLM assistants designed to help you complete repetitive, hard-to-automate tasks quickly
+
+#### Sentiment text analysis
+
+-   [mall](https://mlverse.github.io/mall/) - provides functions for sentiment analysis, text summarization, text classification, extraction, translation and verification
+
+### 

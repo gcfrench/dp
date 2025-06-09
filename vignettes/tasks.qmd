@@ -26,6 +26,10 @@ This **tasks** section contains a list of tasks and questions, with their curren
 
 ## Tasks and questions
 
+2025-04-03
+
+-   ❗ function to open addins.dcf file when adding code comment functions
+
 ## 2024-11-25
 
 -   ❗include superseded lifecycle badge in data project
