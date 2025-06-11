@@ -1,21 +1,23 @@
-# dp 0.4.12
+# dp 0.4.13
+
+# dp 0.4.12 <font size="4">2025-06-09</font>
 
 * added **Using Large Language Models in R** article as vignette into data project 
 documentation
 
-# dp 0.4.8
+# dp 0.4.8 <font size="4">2025-04-03</font>
 
 * added code examples to add a list column into a data frame and extract a column
 from a data frame's list column
 
-# dp 0.4.6
+# dp 0.4.6 <font size="4">2025-04-03</font>
 
 * added a code examples to apply a function to a list column, create a list column
 within a data frame, iterate through a data frame to create multiple parameterized 
 reports, save a data frame to a spreadsheet, select a file path and tidyup unspecified
 objects in the global environment
 
-# dp 0.4.4
+# dp 0.4.4 <font size="4">2025-04-03</font>
 
 * added **activate** and **deactivate** functions as RStudio Addins
 
