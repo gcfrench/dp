@@ -63,7 +63,7 @@ navbar:
       - text: "FME transformer notes"
         href: articles/fme_transformers.html
       - text: "Using Large Language models in R"
-        href: articles/using_ai_in_r.html
+        href: articles/using_llms_in_r.html
       - text: -------
     - text: "lookups and functions"
       href: reference/index.html

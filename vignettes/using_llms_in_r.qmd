@@ -22,6 +22,10 @@ editor: visual
 -   [Which AI model writes the best R code?](https://posit.co/blog/r-llm-evaluation/) (Sara Altman and Simon Couch)
 -   [Computer vision with LLMs in R](https://posit.co/blog/kuzco-computer-vision-with-llms-in-r/) (Frank Hull)
 
+### Videos
+
+-   [Harnessing LLMs for data analysis](https://youtu.be/owDd1CJ17uQ) (Joe Cheng, 2025-05-28)
+
 ### Packages
 
 -   [ellmer](https://ellmer.tidyverse.org/) - use large language models (LLM) from R
@@ -33,6 +37,7 @@ editor: visual
 -   [btw](https://posit-dev.github.io/btw/) - describe your R environment to a large language model (in development)
 -   [vitals](https://vitals.tidyverse.org/) - large language model evaluation in R
 -   [kuzco](https://github.com/frankiethull/kuzco) - computer vision assistant library in R, using Ollama
+-   [querychat](https://github.com/posit-dev/querychat) - drop-in component for Shiny that allows users to query a data frame using natural language to create SQL query
 
 ### **Uses**
 

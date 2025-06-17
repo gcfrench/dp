@@ -10,8 +10,8 @@
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><script src="using_ai_in_r_files/libs/quarto-html/popper.min.js"></script><script src="using_ai_in_r_files/libs/quarto-html/tippy.umd.min.js"></script><link href="using_ai_in_r_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="using_ai_in_r_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><script src="using_llms_in_r_files/libs/quarto-html/popper.min.js"></script><script src="using_llms_in_r_files/libs/quarto-html/tippy.umd.min.js"></script><link href="using_llms_in_r_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="using_llms_in_r_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Using Large Language Models in R">
 </head>
 <body>
@@ -22,7 +22,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">dp</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.12</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.13</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,7 +37,7 @@
   <ul class="dropdown-menu" aria-labelledby="dropdown-information">
 <li><a class="dropdown-item" href="../articles/validation_checks.html">Run validation checks</a></li>
     <li><a class="dropdown-item" href="../articles/fme_transformers.html">FME transformer notes</a></li>
-    <li><a class="dropdown-item" href="../articles/using_ai_in_r.html">Using Large Language models in R</a></li>
+    <li><a class="dropdown-item" href="../articles/using_llms_in_r.html">Using Large Language models in R</a></li>
     <li><hr class="dropdown-divider"></li>
   </ul>
 </li>
@@ -68,7 +68,7 @@
       <p class="author">Graham French</p>
 
 
-      <small class="dont-index">Source: <a href="https://github.com/gcfrench/dp/blob/HEAD/vignettes/using_ai_in_r.qmd" class="external-link"><code>vignettes/using_ai_in_r.qmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/gcfrench/dp/blob/HEAD/vignettes/using_llms_in_r.qmd" class="external-link"><code>vignettes/using_llms_in_r.qmd</code></a></small>
       <div class="d-none name"><code></code></div>
     </div>
 
@@ -92,6 +92,11 @@
 <a href="https://posit.co/blog/r-llm-evaluation/" class="external-link">Which AI model writes the best R code?</a> (Sara Altman and Simon Couch)</li>
 <li>
 <a href="https://posit.co/blog/kuzco-computer-vision-with-llms-in-r/" class="external-link">Computer vision with LLMs in R</a> (Frank Hull)</li>
+</ul></section><section class="level3"><h3 id="videos">Videos<a class="anchor" aria-label="anchor" href="#videos"></a>
+</h3>
+<ul>
+<li>
+<a href="https://youtu.be/owDd1CJ17uQ" class="external-link">Harnessing LLMs for data analysis</a> (Joe Cheng, 2025-05-28)</li>
 </ul></section><section class="level3"><h3 id="packages">Packages<a class="anchor" aria-label="anchor" href="#packages"></a>
 </h3>
 <ul>
@@ -110,6 +115,8 @@
 <a href="https://vitals.tidyverse.org/" class="external-link">vitals</a> - large language model evaluation in R</li>
 <li>
 <a href="https://github.com/frankiethull/kuzco" class="external-link">kuzco</a> - computer vision assistant library in R, using Ollama</li>
+<li>
+<a href="https://github.com/posit-dev/querychat" class="external-link">querychat</a> - drop-in component for Shiny that allows users to query a data frame using natural language to create SQL query</li>
 </ul></section><section class="level3"><h3 id="uses">
 <strong>Uses</strong><a class="anchor" aria-label="anchor" href="#uses"></a>
 </h3>
